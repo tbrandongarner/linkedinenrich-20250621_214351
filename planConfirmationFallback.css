@@ -1,0 +1,147 @@
+.plan-confirmation-fallback-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  animation: pcffadeIn 0.3s ease-out forwards;
+}
+
+@keyframes pcffadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.plan-confirmation-fallback-modal {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  animation: pcfSlideDown 0.3s ease-out forwards;
+}
+
+@keyframes pcfSlideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.plan-confirmation-fallback-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #333333;
+}
+
+.plan-confirmation-fallback-message {
+  font-size: 1rem;
+  margin: 0 0 20px;
+  line-height: 1.4;
+  color: #555555;
+}
+
+.plan-confirmation-fallback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.plan-confirmation-fallback-button {
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-width: 100px;
+  box-sizing: border-box;
+}
+
+.plan-confirmation-fallback-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 115, 177, 0.5);
+}
+
+.plan-confirmation-fallback-button--primary {
+  background-color: #0073b1;
+  color: #ffffff;
+}
+
+.plan-confirmation-fallback-button--primary:hover,
+.plan-confirmation-fallback-button--primary:focus {
+  background-color: #005582;
+}
+
+.plan-confirmation-fallback-button--secondary {
+  background: transparent;
+  color: #0073b1;
+  border: 1px solid #0073b1;
+}
+
+.plan-confirmation-fallback-button--secondary:hover,
+.plan-confirmation-fallback-button--secondary:focus {
+  background: rgba(0, 115, 177, 0.1);
+}
+
+.plan-confirmation-fallback-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.plan-confirmation-fallback-close:before,
+.plan-confirmation-fallback-close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  background: #777777;
+}
+
+.plan-confirmation-fallback-close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.plan-confirmation-fallback-close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (max-width: 480px) {
+  .plan-confirmation-fallback-modal {
+    padding: 16px;
+  }
+  .plan-confirmation-fallback-title {
+    font-size: 1.125rem;
+  }
+  .plan-confirmation-fallback-message {
+    font-size: 0.95rem;
+  }
+  .plan-confirmation-fallback-button {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+}
