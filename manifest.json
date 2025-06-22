@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedInEnrich",
+  "version": "1.0.0",
+  "description": "Automatically enrich LinkedIn profile pages with email, phone, company details, and social links via third-party enrichment APIs.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "contextMenus",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "https://api.enrichmentprovider.com/*",
+    "https://api.anotherprovider.com/*",
+    "https://*.clearbit.com/*",
+    "https://api.hunter.io/*",
+    "https://api.fullcontact.com/*",
+    "https://api.pipl.com/*"
+  ],
+  "background": {
+    "service_worker": "enrichProfileContextMenu.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/in/*",
+        "https://www.linkedin.com/pub/*"
+      ],
+      "js": [
+        "injectLinkedinSidebar.js"
+      ],
+      "css": [
+        "overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "LinkedInEnrich",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "overlay.html",
+        "overlay.css",
+        "overlay.js"
+      ],
+      "matches": [
+        "https://www.linkedin.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
