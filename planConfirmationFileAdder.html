@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attach Confirmation File</title>
+  <link rel="stylesheet" href="planConfirmationFallback.css">
+  <script src="planConfirmationFileAdder.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Attach Confirmation File</h1>
+    <form id="confirmationFileForm" novalidate>
+      <label for="planConfirmationFileInput">Select a confirmation file to upload:</label>
+      <input type="file" id="planConfirmationFileInput" name="confirmationFile" accept=".pdf,.doc,.docx,.jpg,.png" required>
+      <div class="button-group">
+        <button type="submit" id="uploadBtn" disabled>Upload</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+      </div>
+    </form>
+    <div id="planConfirmationFileStatus" role="alert" aria-live="polite"></div>
+  </div>
+</body>
+</html>
