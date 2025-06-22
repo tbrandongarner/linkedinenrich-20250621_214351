@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI File Not Found</title>
+  <link rel="stylesheet" href="confirmMissingFileStyles.css">
+</head>
+<body>
+  <main class="ai-file-not-found-page">
+    <div class="ai-file-not-found-content">
+      <h1 class="ai-file-not-found-title">AI File Not Found</h1>
+      <p class="ai-file-not-found-message">
+        Oops! The requested AI file could not be located. Please check the file name or path and try again.
+      </p>
+      <div class="ai-file-not-found-actions">
+        <button id="retry-button" type="button" class="btn">Retry</button>
+        <button id="close-button" type="button" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.getElementById('retry-button').addEventListener('click', function() {
+      window.location.reload();
+    });
+    document.getElementById('close-button').addEventListener('click', function() {
+      window.close();
+    });
+  </script>
+</body>
+</html>
